@@ -5,8 +5,8 @@ __pycache__/
 
 README.md
 Readme.md
-app1/__pycache__/
-app1/__pycache__/
+app1/__pycache__
+app1/__pycache__
 
 
 # C extensions

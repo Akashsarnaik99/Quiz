@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from django.core.paginator import Paginator
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
@@ -25,9 +24,11 @@ def result(request):
     return render(request, 'result.html')
 
 
+questions =[]
 def quiz(request):
+  
    
-   questions = []
+   global questions 
    options=[]
 
    
@@ -45,6 +46,8 @@ def quiz(request):
         options.append(option)
 
    zipped_data = zip(questions, options)
+  
+
 
    context = {
               'zipped_data': zipped_data,
@@ -91,4 +94,12 @@ def result2(request):
                 count+=1
 
     total=count
-    return render(request, 'result2.html',{'count':total})
+    try:
+        percentage=(count/len(questions))*100
+    except Exception as e:
+        print(e)
+    context={
+        'count':total,
+        'percentage':percentage,
+    }
+    return render(request, 'result2.html',context)
