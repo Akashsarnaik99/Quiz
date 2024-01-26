@@ -1,0 +1,40 @@
+
+.nav-item>a{
+    color:#98b4d4;
+    margin-right: 5px;
+    margin-left:90px;
+    margin-top:5px;
+    font-size: 20px;
+    
+}
+.nav-item>a:hover{
+    background-color:#b3b2b2;
+}
+.navbar-nav{
+    height: 50px;
+}
+
+.navbar-nav>h1{
+    color:#45B8AC;
+}
+
+#quizcol{
+    margin-top:50px;
+    width: 40px;
+    height: 60px;
+    border :2px solid red;
+}
+#option{
+    margin-top:50px;
+
+}
+#option>div{
+    margin-bottom: 20px;
+    border:2px solid green;
+}
+
+/* #option>div:hover{
+background-color:#d6a9cd;
+} */
+
+
