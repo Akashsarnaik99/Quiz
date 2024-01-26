@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <form action="{% url 'evaluate' %}" method="post">
+    <form action="{% url 'result2' %}" method="post">
         {% csrf_token %}
     <div class="row">
         {% for i,j in zipped_data %}
