@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
+from django.core.paginator import Paginator
+
 
 # Create your views here.
 
@@ -43,6 +45,7 @@ def quiz(request):
         options.append(option)
 
    zipped_data = zip(questions, options)
+
    context = {
               'zipped_data': zipped_data,
               'count':count,
@@ -75,3 +78,17 @@ def evaluate(request):
     
 
     return render(request, 'quiz.html',{'count':total,'form_submitted':form_submitted})
+
+
+def result2(request):
+    count=0
+    if request.method =='POST':
+        options =['yen','New Delhi','Neil Armstrong','Droupadi Murmu']
+        i=1
+        for i in range(len(options)):
+            selected_option = request.POST.get(f"response_{i+1}")
+            if selected_option==options[i]:
+                count+=1
+
+    total=count
+    return render(request, 'result2.html',{'count':total})
